@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	<bean id="car" class="com.smart.attr.Car">
+		<property name="brand" value="吉利CT5" />
+		<property name="maxSpeed" value="100" />
+		<property name="price" value="1000.00" />
+	</bean>
+	<!--<bean id="boss" class="com.smart.attr.Boss">-->
+		<!--<property name="car">-->
+			<!--<ref parent="car" />-->
+		<!--</property>-->
+	<!--</bean>-->
+
+	<bean id="boss4" class="com.smart.attr.BossTest01">
+		<property name="fas">
+			<list>
+				<value>aa</value>
+				<value>bb</value>
+				<value>cc</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="boss5" class="com.smart.attr.BossTest01">
+		<property name="properties">
+			<props>
+				<prop key="a">11</prop>
+				<prop key="b">22</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="boss6" class="com.smart.attr.BossTest01">
+		<property name="map">
+			<map>
+				<entry>
+					<key><value>a</value></key>
+					<value>a1</value>
+				</entry>
+				<entry>
+					<key><value>b</value></key>
+					<value>b1</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>
