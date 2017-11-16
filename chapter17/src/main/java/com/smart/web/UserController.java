@@ -190,7 +190,7 @@ public class UserController {
 
 	@RequestMapping(value = "/handle41")
 
-	public String handle41(@RequestBody @MatrixVariable String body) {
+	public String handle41(@RequestBody String body) {
 		System.out.println(body);
 		return "success";
 	}
