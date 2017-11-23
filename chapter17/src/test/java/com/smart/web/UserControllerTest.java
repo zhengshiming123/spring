@@ -20,7 +20,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.Collections;
 
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
+@ContextConfiguration(locations = "classpath:applicationContext1.xml")
 public class UserControllerTest  extends AbstractTransactionalTestNGSpringContextTests {
     @Test
     public void testhandle41() {
@@ -73,8 +73,8 @@ public class UserControllerTest  extends AbstractTransactionalTestNGSpringContex
         user.setRealName("汤姆");
 
         HttpHeaders entityHeaders = new HttpHeaders();
-        entityHeaders.setContentType(MediaType.valueOf("application/xml;UTF-8"));
-        entityHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_XML));
+        entityHeaders.setContentType(MediaType.valueOf("application/json;UTF-8"));
+        entityHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         HttpEntity<User> requestEntity = new HttpEntity<User>(user, entityHeaders);
 
 

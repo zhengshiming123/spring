@@ -39,8 +39,8 @@
 	    <tr>
 	     <td>生日：</td>
 	       <td>
-	         <form:errors path="birthday" cssClass="errorClass" element="div"/>
-	         <form:input path="birthday" />    
+	         <%--<form:errors path="birthday" cssClass="errorClass" element="div"/>--%>
+	         <%--<form:input path="birthday" />    --%>
 	       </td>
 	    </tr>
 	    <tr>

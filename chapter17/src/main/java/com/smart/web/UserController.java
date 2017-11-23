@@ -6,6 +6,7 @@ import com.smart.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.format.datetime.DateFormatter;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -190,8 +192,22 @@ public class UserController {
 
 	@RequestMapping(value = "/handle41")
 
-	public String handle41(@RequestBody String body) {
+	public String handle41(@RequestBody @MatrixVariable String body) {
 		System.out.println(body);
+		return "success";
+	}
+
+	@RequestMapping(value = "/test02")
+	public String handle412(String a,String b) {
+		System.out.println(a);
+		System.out.println(b);
+		return "/user/test01";
+	}
+
+	@RequestMapping(value = "/su")
+	public String handle41su(String a,String b) {
+		System.out.println(a);
+		System.out.println(b);
 		return "success";
 	}
 
@@ -322,6 +338,7 @@ public class UserController {
 	@RequestMapping(value = "/handle91")
 	public String handle91(@Valid @ModelAttribute("user") User user,
 			BindingResult bindingResult, ModelMap mm) {
+		List<FieldError> fieldErrors = bindingResult.getFieldErrors();
 		if (bindingResult.hasErrors()) {
 			return "/user/register3";
 		} else {
@@ -538,6 +555,20 @@ public class UserController {
 			return "redirect:fail.html";
 		}
 	}
+
+	@RequestMapping(value = "/websocket")
+	public String updateThumb() throws Exception{
+
+			return "user/hello";
+
+	}
+
+	@RequestMapping(value = "/test")
+	public String test() throws Exception{
+
+		return "test";
+
+	}
 	
 	@RequestMapping(value = "/throwException")
 	public String throwException() {
@@ -565,6 +596,7 @@ public class UserController {
 	public void initBinder(WebDataBinder binder) {
 		// binder.registerCustomEditor(User.class, new UserEditor());
 		// binder.setValidator(new UserValidator());
+		binder.addCustomFormatter(new DateFormatter("yyyy-MM-dd"));
 	}
 
 }
